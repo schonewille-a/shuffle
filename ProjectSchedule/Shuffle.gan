@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Shuffle+" company="McMaster, CAS Department" webLink="https://gitlab.cas.mcmaster.ca/delalik/Shuffle" view-date="2017-10-08" view-index="0" gantt-divider-location="720" resource-divider-location="300" version="2.8.5" locale="en_CA">
+    <description><![CDATA[Redesign of Shuffle, a web-based YouTube player that shuffles through random YouTube music videos.  This project will add the ability to filter and search by artist.]]></description>
+    <view zooming-state="default:5" id="gantt-chart">
+        <field id="tpd3" name="Name" width="322" order="0"/>
+        <field id="tpd4" name="Begin date" width="197" order="1"/>
+        <field id="tpd5" name="End date" width="197" order="2"/>
+        <timeline><![CDATA[148]]></timeline>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="0" mon="0" tue="0" wed="0" thu="0" fri="0" sat="0"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Development Plan" color="#8cb6ce" meeting="false" start="2017-09-27" duration="3" complete="0" expand="true" cost-manual-value="20.0" cost-calculated="false">
+            <task id="29" name="Gantt Chart" color="#8cb6ce" meeting="false" start="2017-09-29" duration="1" complete="0" expand="true"/>
+            <task id="32" name="Write Development Plan" color="#8cb6ce" meeting="false" start="2017-09-27" duration="3" complete="0" expand="true"/>
+        </task>
+        <task id="107" name="Requirements Document Rev 0" color="#8cb6ce" meeting="false" start="2017-10-02" duration="5" complete="0" expand="true">
+            <task id="114" name="Requirements Gathering" color="#8cb6ce" meeting="false" start="2017-10-02" duration="1" complete="0" expand="true">
+                <depend id="115" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="115" name="Requirements Analysis" color="#8cb6ce" meeting="false" start="2017-10-03" duration="2" complete="0" expand="true">
+                <depend id="120" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="120" name="Requirements Specification" color="#8cb6ce" meeting="false" start="2017-10-05" duration="2" complete="0" expand="true"/>
+        </task>
+        <task id="121" name="Proof of Concept Demo" color="#8cb6ce" meeting="false" start="2017-10-09" duration="12" complete="0" expand="true">
+            <task id="124" name="Write Front-End" color="#8cb6ce" meeting="false" start="2017-10-09" duration="4" complete="0" expand="true">
+                <depend id="129" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="126" name="Write Back-End" color="#8cb6ce" meeting="false" start="2017-10-13" duration="4" complete="0" expand="true">
+                <depend id="129" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="129" name="Test Demo" color="#8cb6ce" meeting="false" start="2017-10-17" duration="4" complete="0" expand="true"/>
+        </task>
+        <task id="136" name="Test Plan Rev 0" color="#8cb6ce" meeting="false" start="2017-10-23" duration="5" complete="0" expand="true">
+            <task id="139" name="Write Algorithm Tests" color="#8cb6ce" meeting="false" start="2017-10-23" duration="2" complete="0" expand="true"/>
+            <task id="142" name="Write Front-End Tests" color="#8cb6ce" meeting="false" start="2017-10-25" duration="3" complete="0" expand="true"/>
+        </task>
+        <task id="146" name="Design Document Rev 0" color="#8cb6ce" meeting="false" start="2017-10-30" duration="12" complete="0" expand="true"/>
+        <task id="148" name="Revision 0 Demonstration" color="#8cb6ce" meeting="false" start="2017-11-13" duration="5" complete="0" expand="true"/>
+        <task id="152" name="Final Demonstration (Rev 1)" color="#8cb6ce" meeting="false" start="2017-11-20" duration="12" complete="0" expand="true"/>
+        <task id="154" name="Final Documentation (Rev 1)" color="#8cb6ce" meeting="false" start="2017-12-04" duration="3" complete="0" expand="true"/>
+    </tasks>
+    <resources>
+        <resource id="0" name="Aidan Schonewille" function="1" contacts="schonea@mcmaster.ca" phone=""/>
+        <resource id="1" name="Sullivan Stobo" function="2" contacts="stobos1@mcmaster.ca" phone=""/>
+        <resource id="2" name="Karlo Delalic" function="3" contacts="delalik@mcmaster.ca" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="29" resource-id="0" function="Default:0" responsible="true" load="50.0"/>
+        <allocation task-id="32" resource-id="0" function="1" responsible="true" load="50.0"/>
+        <allocation task-id="114" resource-id="0" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="120" resource-id="0" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="124" resource-id="0" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="129" resource-id="0" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="126" resource-id="0" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="139" resource-id="0" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="142" resource-id="0" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="146" resource-id="0" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="148" resource-id="0" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="152" resource-id="0" function="1" responsible="false" load="100.0"/>
+        <allocation task-id="154" resource-id="0" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="32" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="114" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="115" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="120" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="124" resource-id="1" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="129" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="126" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="139" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="142" resource-id="1" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="146" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="148" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="152" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="154" resource-id="1" function="2" responsible="false" load="100.0"/>
+        <allocation task-id="32" resource-id="2" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="114" resource-id="2" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="115" resource-id="2" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="120" resource-id="2" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="124" resource-id="2" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="129" resource-id="2" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="126" resource-id="2" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="139" resource-id="2" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="142" resource-id="2" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="146" resource-id="2" function="3" responsible="false" load="100.0"/>
+        <allocation task-id="148" resource-id="2" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="152" resource-id="2" function="3" responsible="true" load="100.0"/>
+        <allocation task-id="154" resource-id="2" function="3" responsible="false" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles>
+        <role id="1" name="Documentation"/>
+        <role id="2" name="Front-End Developer"/>
+        <role id="3" name="Project Manager"/>
+    </roles>
+</project>
