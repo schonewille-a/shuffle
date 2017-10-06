@@ -7,22 +7,19 @@
     colorlinks,
     citecolor=black,
     filecolor=black,
-    linkcolor=red,
+    linkcolor=black,
     urlcolor=blue
 }
-\usepackage[round]{natbib}
 
-\title{SE 3XA3: Software Requirements Specification\\Title of Project}
+\title{SE 3XA3: Software Requirements Specification\\Shuffle+}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
+\author{Team 16, ASK Studios
+		\\ Aidan Schonewille, schonea
+		\\ Sullivan Stobo, stobos
+		\\ Karlo Delalic, delalik
 }
 
 \date{\today}
-
-\input{../Comments}
 
 \begin{document}
 
@@ -38,8 +35,8 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Oct 4, 2017 & 1.0 & Got a start on filling stuff on inital section\\
-Date 2 & 1.1 & Notes\\
+Oct 4, 2017 & 1.0 & Got a start on filling stuff on inital section.\\
+Date 2 & 1.1 & Finished document.\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -48,111 +45,142 @@ Date 2 & 1.1 & Notes\\
 
 \pagenumbering{arabic}
 
-This document describes the requirements for ....  The template for the Software
-Requirements Specification (SRS) is a subset of the Volere
-template~\citep{RobertsonAndRobertson2012}.  If you make further modifications
-to the template, you should explicity state what modifications were made.
-
 \section{Project Drivers}
 
 \subsection{The Purpose of the Project}
 
-The purpose of our project is take the open source project Shuffle and redevelope it using software engineering principles and design philosophy as well as adding additoinal features.
+The purpose of our project is take the open source project Shuffle and redevelop it using software engineering principles and design philosophy as well as adding additional features.  
 
 \subsection{The Stakeholders}
-
-The stakeholder are current and future developers of shuffle, music artists and labels, YouTube API developers, watchers of music videos and members of our devlopment team.
-
 \subsubsection{The Client}
-
+The client is the developer of Shuffle, of which we will be basing our product on.
 \subsubsection{The Customers}
-
+The customer is someone who enjoys watching music videos on their computer.  They would most likely be someone who is already familiar with YouTube, but it is possible that they use a different service to view their music videos.  YouTube's wide variety of content allows our product to cater to any music listener, regardless of taste.
 \subsubsection{Other Stakeholders}
+Developers of YouTube or those who develop using the YouTube API have a stake in this product, as we will be heavily relying on it for the delivery of our service.  Music artists and labels hold a stake in that their products will be shown to our customers.  The members of ASK Studios are stakeholders as we are the primary developers and the outcome of this product will reflect on us heavily.
 
 \subsection{Mandated Constraints}
-
-Our product will run in HTML and JavaScript supported environments, our product will require an internet connection to function.
+\subsubsection{Solution Constraints}
+The application will be operable on any operating system which supports JavaScript enabled web browsers. This includes Windows, Linux, Mac OSX, Android, and iOS. \\
+\\
+\textbf{Rationale:} Clients use each of the above listed operating systems, some even use more than one. \\\\
+\textbf{Fit Criterion:} The application will be approved by tests on each of the operating systems.
+\subsubsection{Partner or Collaborative Applications}
+The application is based on a preexisting YouTube Music Video Shuffler which is written in JavaScript. Therefore the user must be able to support JavaScript on their device in order for the application to be usable.
+\subsubsection{Off-the-Shelf Software}
+We will use Bootstrap 4 for easier development of the structure of the website. This will save time and the large Bootstrap community provides as a great support for a bug-free environment.
+\subsubsection{Budget Constraints}
+The operating budget is \$0 and money is not required to complete any part of this project. Free web hosting and domains are available on the web.
+\subsubsection{Schedule Constraints}
+The product must be completed by the week of December 7, 2017.
 
 \subsection{Naming Conventions and Terminology}
+\begin{enumerate}
+  \item \textbf{API:} Application Program Interface. An API is a set of routines, protocols, and tools for building software applications. An API specifies how software components should interact. It is used by applications to request services from an operating system, software libraries, or other services provided on a server.
+  \item \textbf{JavaScript:} An object-oriented computer programming language commonly used to create interactive effects within web browsers.
+  \\\\
+  \item \textbf{Bootstrap:} A free and open-source front-end web framework for designing websites and web applications. It contains HTML and CSS based design templates for typography, forms, buttons, navigation and other interface components, as well as JavaScript extensions.
+  \item \textbf{HTML:} HyperText Markup Language. HTML elements are the building blocks of HTML pages. They are represented by tags. Tags label pieces of content such as “heading”, “paragraph”, “table”, and so on. It describes the structure of web pages using markup.
+  \item \textbf{CSS:} Cascading Style Sheets. CSS describes how HTML elements are to be displayed on screen, paper, or in other media. CSS saves a lot of work. It can control the layout of multiple web pages all at once.
+  \item \textbf{YouTube:} YouTube is a free video-hosting website that allows members to store and serve video content. YouTube members and website visitors can share YouTube videos on a variety of web platforms by using a link or by embedding HTML code.
+  \item \textbf{UI:} User Interface. The means by which the user and a computer system interact, in particular the use of input devices and software.
+  \item \textbf{ReactJS:} React is a JavaScript library for building user interfaces. React allows developers to create large web-applications that use data and can change over time without reloading the page. It aims to primarily provide speed, simplicity, and scalability.
+\end{enumerate}
+
 
 
 
 \subsection{Relevant Facts and Assumptions}
-
-User characteristics should go under assumptions.
+It is assumed that users are familiar with navigating the internet and YouTube more specifically. It is also assumed that users will take responsibility for the bandwidth usage that they will incur if such a limit exists in their internet plan. The YouTube API works in such a way that when the program calls the API with a keyword - such as an artist, genre, or song name - a link or links relevant to the keyword are returned and then are served to the user in a viewable way. YouTube does not legally allow for the video and audio of a video to be separated so it is not legally possible for the program to provide a typical music player without displaying the visuals along with the audio.
 
 \section{Functional Requirements}
 
-\subsection{The Scope of the Work and the Product}
+Requirement: The product shall allow music videos to be streamed via YouTube.\\
+Rationale: This is the very basic function of our product.\\\\
+Requirement: When the current music video playing ends, another relevant music video shall begin playing.\\
+Rationale: This is also a very basic function of our product and allow for minimal input use, as the user can simply let videos play.\\\\
+Requirement: The product shall allow the user to input various artists or genres to provide and begin playing a random music video based on these terms.\\
+Rationale: This allows the user to provide a ‘starting point’ from which the product will begin.  The program can then select music videos that are similar to the initial video selected.\\\\
+Requirement: The product shall allow the user to skip a video or go back to the previous video played.\\
+Rationale: This allow the user to revisit songs they enjoyed or skip songs that they do not enjoy.  This should make our product nicer to use.
 
-\subsubsection{The Context of the Work}
+\subsection{Scope of Product}
+
+We are taking the existing product ‘Shuffle’, recreating it and adding additional features that will improve the user's experience.
+
+\subsubsection{Context of Work}
+
+The product shall run in HTML5 supported browsers and shall require an Internet connection.
 
 \subsubsection{Work Partitioning}
 
-\subsubsection{Individual Product Use Cases}
+Karlo shall be the project leader, Sullivan shall be working mostly on front end and Aidan shall be responsible for documentation.  These roles are subject to change and we will all be doing work on most aspects of the product.
 
-\subsection{Functional Requirements}
+\subsubsection{Use Cases}
+
+User provides several artists or genre filters.\\
+User hits a button to apply those filters\\
+A music video that passes all the filters begins to play.\\\\
+User presses the skip button.\\
+A new video that passes any filters applied begins to play.\\\\
+The users presses the previous button. \\
+The video that was playing before the user pressed the skip button begins to play.\\
+
 
 \section{Non-functional Requirements}
 
 \subsection{Look and Feel Requirements}
-
+Requirement: The product's visual interface should be minimal and not obstruct the video being played.\\
+Rationale: The user's focus should be on the music video displayed, and the visual interface should not distract the user from their video.
 \subsection{Usability and Humanity Requirements}
-
+Requirement: All of the product's features should be accessible from a single page and not interfere with video playback.\\
+Rationale: The main feature of our product is the playback of music videos, and this service should not be interrupted unless absolutely necessary or desired by the user.\\\\
+Requirement: The product should be easy to understand and operate at a first glance.\\
+Rationale: Our product should appeal to the widest audience by being easy to use and understand.
 \subsection{Performance Requirements}
-
+Requirement: The product should perform similarly to Shuffle and existing YouTube-based web products.\\
+Rationale: To make our product more desirable, it should deliver its services quickly, as to not be outclassed by similar products.
 \subsection{Operational and Environmental Requirements}
-
+Requirement: The product shall run on a desktop HTML5 environment.\\
+Rationale: This is where Shuffle functions, and to fully support its userbase our product shall support it as well.
 \subsection{Maintainability and Support Requirements}
-
+Requirement: The product shall be simple to maintain and support over its lifespan.\\
+Rationale: Should any of the development team or outside developers wish to improve our product, they should not be impeded from doing so.  It should be built with this in mind.
 \subsection{Security Requirements}
-
+None.
 \subsection{Cultural Requirements}
-
+None.
 \subsection{Legal Requirements}
-
+Requirement: The audio and video from the music video shall not be split.\\
+Rationale: This would break YouTube's terms of service in the use of their API.
 \subsection{Health and Safety Requirements}
-
-This section is not in the original Volere template, but health and safety are
-issues that should be considered for every engineering project.
-
+None.
 \section{Project Issues}
-
+None.
 \subsection{Open Issues}
-
+None.
 \subsection{Off-the-Shelf Solutions}
-
+YouTube's autoplay function on their site is an existing algorithm that can be used to view related videos.  However, the interface is not as simple as Shuffle, and does not restrict by artist or genre.
 \subsection{New Problems}
-
+None.
 \subsection{Tasks}
-
-\subsection{Migration to the New Product}
-
+Tasks are outlined in our development plan.
 \subsection{Risks}
-
+There are a few legal risks associated with the product as we are allow users to access content that we do not own, but anything that is on YouTube should be legal for us to play, so we should not encounter any issues.
 \subsection{Costs}
+
+No known costs are current associated with with our product.
 
 \subsection{User Documentation and Training}
 
+The product shall provide a simple ‘help’ page to provide users with a brief set of instructions on how to use the product.  Since the product is very simple and should be very straightforward to use, minimal instructions should be required.
+
 \subsection{Waiting Room}
 
+None, for the moment.
+
 \subsection{Ideas for Solutions}
-
-\bibliographystyle{plainnat}
-
-\bibliography{SRS}
-
-\newpage
-
-\section{Appendix}
-
-This section has been added to the Volere template.  This is where you can place
-additional information.
-
-\subsection{Symbolic Parameters}
-
-The definition of the requirements will likely call for SYMBOLIC\_CONSTANTS.
-Their values are defined in this section for easy maintenance.
+None currently.
 
 
 \end{document}
