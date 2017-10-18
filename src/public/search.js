@@ -1,6 +1,5 @@
 //Array for videoIDs
-vid = [];
-
+var vid = [];
 function searchVideo(PageToken)
 {
     //Searchy text goes here
@@ -38,7 +37,11 @@ function searchVideo(PageToken)
                 //If the type is undefined we reject it (how do we know this? who knows)
                 if(typeof videoID != 'undefined'){
                     vid.push(videoID);
+					shuffle(vid);
                 }
+				if (vid.length == 50) {
+					return;
+				}
             }
         searchVideo(nextPageToken);
 		return;
@@ -47,7 +50,6 @@ function searchVideo(PageToken)
 
 //Call Search Video
 searchVideo();
-
 
 //Setup Player
 var tag = document.createElement('script');
@@ -80,5 +82,16 @@ function nextVideo(event) {
 	if(event.target.getPlayerState() == 0) {
 		event.target.loadVideoById(vid[++song]);
 	}
+}
+
+//Function to shuffle array
+function shuffle(a) {
+	var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
 }
 
