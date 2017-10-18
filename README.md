@@ -15,7 +15,7 @@ src - Application code
 
 Usage:
 
-Requires nodejs (https://nodejs.org/en/)(Version 8.7.0)
+Requires nodejs (https://nodejs.org/en/) (Version 8.7.0)
 
 1. Navigate to Shuffle/src
 2. Open command line
