@@ -14,6 +14,9 @@ function searchVideo(PageToken)
         part : 'snippet',
         //Q for query
         q : searchText,
+		//Only searching for music videos
+		videoCategoryId : 10,
+		type: 'video',
         //Max results, break over 50
         maxResults : 10,
         //No clue what a page token is
@@ -22,7 +25,7 @@ function searchVideo(PageToken)
         key: 'AIzaSyAfwfRNJQRwEKJtea5hcZQ0hswGloi7DUI'},
 
         //I also have no clue why this function is here
-        function myPlan(response){
+        function populateList(response){
             //Again with the page tokens
             nextPageToken=response.nextPageToken;     
             //The number of results maybe?
@@ -35,10 +38,10 @@ function searchVideo(PageToken)
                 //If the type is undefined we reject it (how do we know this? who knows)
                 if(typeof videoID != 'undefined'){
                     vid.push(videoID);
-                    return;
                 }
             }
         searchVideo(nextPageToken);
+		return;
    }); //End of get nonsense
 }
 
@@ -55,18 +58,27 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 //Make the player
 var player;
+var song=0;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: vid[0],
+        videoId: vid[song],
         events: {
             'onReady': onPlayerReady,
+			'onStateChange': nextVideo
         }
     });
 }
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
     event.target.playVideo();
+}
+
+//Function to advance to the next song if current song has ended
+function nextVideo(event) {
+	if(event.target.getPlayerState() == 0) {
+		event.target.loadVideoById(vid[++song]);
+	}
 }
 
