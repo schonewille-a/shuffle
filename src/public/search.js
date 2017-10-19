@@ -74,6 +74,10 @@ function onYouTubeIframeAPIReady() {
 }
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
+	//Waits for playlist to fill before playing a video
+	while (vid.length < 1) {
+	}
+
     event.target.playVideo();
 }
 
