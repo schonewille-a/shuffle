@@ -3,7 +3,7 @@ var vid = [];
 function searchVideo(PageToken)
 {
     //Searchy text goes here
-    var searchText = "Radiohead";
+    var searchText = "Gorillaz";
 
     //Scary JQuery get statement (note $ is shorthand for JQuery)
     $.get(
@@ -16,8 +16,6 @@ function searchVideo(PageToken)
 		//Only searching for music videos
 		videoCategoryId : 10,
 		type: 'video',
-        //Max results, break over 50
-        maxResults : 10,
         //No clue what a page token is
         pageToken : PageToken,
         //Lovely API key
@@ -37,7 +35,7 @@ function searchVideo(PageToken)
                 //If the type is undefined we reject it (how do we know this? who knows)
                 if(typeof videoID != 'undefined'){
                     vid.push(videoID);
-					shuffle(vid);
+					//shuffle(vid);
                 }
 				if (vid.length == 50) {
 					return;
@@ -50,7 +48,6 @@ function searchVideo(PageToken)
 
 //Call Search Video
 searchVideo();
-
 //Setup Player
 var tag = document.createElement('script');
 
@@ -68,17 +65,16 @@ function onYouTubeIframeAPIReady() {
         videoId: vid[song],
         events: {
             'onReady': onPlayerReady,
-			'onStateChange': nextVideo
+			'onStateChange': nextVideo,
+			'onError': vidError
         }
     });
 }
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
 	//Waits for playlist to fill before playing a video
-	while (vid.length < 1) {
-	}
-
-    event.target.playVideo();
+	shuffle(vid);
+    event.target.loadVideoById(vid[song]);
 }
 
 //Function to advance to the next song if current song has ended
@@ -86,6 +82,14 @@ function nextVideo(event) {
 	if(event.target.getPlayerState() == 0) {
 		event.target.loadVideoById(vid[++song]);
 	}
+}
+
+//Function to skip video on error
+function vidError(event) {
+	while (vid.length < song + 1) {
+	}
+	
+	event.target.loadVideoById(vid[++song]);
 }
 
 //Function to shuffle array
