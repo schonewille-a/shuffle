@@ -35,7 +35,6 @@ function searchVideo(PageToken)
                 //If the type is undefined we reject it (how do we know this? who knows)
                 if(typeof videoID != 'undefined'){
                     vid.push(videoID);
-					//shuffle(vid);
                 }
 				if (vid.length == 50) {
 					return;
@@ -62,14 +61,14 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: vid[song],
         events: {
             'onReady': onPlayerReady,
-			'onStateChange': nextVideo,
+			'onStateChange': vidEnd,
 			'onError': vidError
         }
     });
 }
+
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
 	//Waits for playlist to fill before playing a video
@@ -78,7 +77,7 @@ function onPlayerReady(event) {
 }
 
 //Function to advance to the next song if current song has ended
-function nextVideo(event) {
+function vidEnd(event) {
 	if(event.target.getPlayerState() == 0) {
 		event.target.loadVideoById(vid[++song]);
 	}
@@ -90,6 +89,16 @@ function vidError(event) {
 	}
 	
 	event.target.loadVideoById(vid[++song]);
+}
+
+//Function to skip song and play next
+function nextVideo() {
+	player.loadVideoById(vid[++song]);
+}
+
+//Function to play previous song
+function previousVideo() {
+	player.loadVideoById(vid[--song]);
 }
 
 //Function to shuffle array
