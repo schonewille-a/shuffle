@@ -30,7 +30,7 @@ export default class SearchBar extends Component {
             <input className="input" type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
         </form>
-        <NavItem className="searchButton">
+        <NavItem className="searchButton" onClick={this.handleSubmit}>
               <Icon>search</Icon>
         </NavItem>
       </div>
