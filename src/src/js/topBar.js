@@ -6,7 +6,7 @@ import SearchBar from './searchBar'
 
 export default class TopBar extends Component {
 
-  myCallback(dataFromChild) {
+  myCallback = (dataFromChild) => {
     this.props.parentCallBack(dataFromChild);
   }
 
