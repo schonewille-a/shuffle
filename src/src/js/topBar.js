@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import {Navbar, NavItem, Icon} from 'react-materialize';
+import {Navbar} from 'react-materialize';
 import '../css/topBar.css';
+import SearchBar from './searchBar'
 
 
 export default class TopBar extends Component {
+
+  myCallback(dataFromChild) {
+    this.props.parentCallBack(dataFromChild);
+  }
+
   render() {
     return (
       <div className="wrapper">
         <Navbar className="logo" brand='Shuffle+' right>
-          <NavItem>
-            <Icon>search</Icon>
-          </NavItem>
+          <SearchBar callBack={this.myCallback}/>
         </Navbar>
       </div>
     );

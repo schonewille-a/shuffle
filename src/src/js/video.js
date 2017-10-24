@@ -58,15 +58,11 @@ export default class Video extends Component {
   render() {
     return (
       <div className="wrapper">
-        <div className="vid">
-          <YouTube
-            height="390"
-            width="640"
+          <YouTube className="vid"
             onReady={this.onPlayerReady.bind(this)}
             onEnd={this.goToNextSong.bind(this)}
             onError={this.goToNextSong.bind(this)}
           />
-        </div>
       </div>
     );
   }

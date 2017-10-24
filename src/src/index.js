@@ -1,13 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./css/index.css";
-import Video from "./js/video";
-import TopBar from "./js/topBar";
+import App from './js/app'
 
 ReactDOM.render(
   <div>
-    <TopBar />
-    <Video query="Gorillaz" />
+    <App />
   </div>,
   document.getElementById("root")
 );
