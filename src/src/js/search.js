@@ -12,7 +12,7 @@ export default function searchVideo(query, pageToken, listOfVideoIDs = []) {
     // Avoid playlists
     type: 'video',
     // Only search music videos
-    videoCategoryID: 10,
+    videoCategoryId: 10,
     // To load the correct page of results
     pageToken,
     //Lovely API key

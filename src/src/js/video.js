@@ -25,7 +25,7 @@ export default class Video extends Component {
       this.state.song !== nextState.song ||
       this.state.videoQueue !== nextState.videoQueue
     ) {
-      this.state.player.loadVideoById(nextState.videoQueue[nextState.song]);
+		this.state.player.loadVideoById(nextState.videoQueue[nextState.song]);
     }
   }
 
