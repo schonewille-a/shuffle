@@ -14,8 +14,6 @@ export default class Video extends Component {
     };
   }
 
-
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.query !== this.props.query) {
       this.updatePlaylist(nextProps.query);
@@ -28,12 +26,11 @@ export default class Video extends Component {
       this.state.song !== nextState.song ||
       this.state.videoQueue !== nextState.videoQueue
     ) {
-		this.state.player.loadVideoById(nextState.videoQueue[this.state.song]);
-    this.props.titleCallback(this.state.videoTitles[this.state.song]);
-    document.title = this.state.videoTitles[this.state.song];
+  		this.state.player.loadVideoById(nextState.videoQueue[nextState.song]);
+      this.props.titleCallback(nextState.videoTitles[nextState.song]);
+      document.title = nextState.videoTitles[nextState.song];
     }
   }
-
 
   updatePlaylist(query) {
     searchVideo(query).then(vids => {
@@ -43,7 +40,13 @@ export default class Video extends Component {
 
       for(var i = 0; i < vids.length; i++){
         videoIDs[i] = shuffledVids[i][0];
-        titles[i] = shuffledVids[i][1];
+        if(shuffledVids[i][1].indexOf("(") !== -1){
+          titles[i] = shuffledVids[i][1].slice(0, shuffledVids[i][1].indexOf("("));
+        } else if(shuffledVids[i][1].indexOf("[") !== -1){
+          titles[i] = shuffledVids[i][1].slice(0, shuffledVids[i][1].indexOf("["));
+        } else {
+         titles[i] = shuffledVids[i][1];
+        }
       }
 
       this.setState({
