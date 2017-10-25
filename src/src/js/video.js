@@ -28,10 +28,12 @@ export default class Video extends Component {
       this.state.song !== nextState.song ||
       this.state.videoQueue !== nextState.videoQueue
     ) {
-		this.state.player.loadVideoById(nextState.videoQueue[nextState.song]);
-    this.props.titleCallback(this.state.videoTitles[nextState.song]);
+		this.state.player.loadVideoById(nextState.videoQueue[this.state.song]);
+    this.props.titleCallback(this.state.videoTitles[this.state.song]);
+    document.title = this.state.videoTitles[this.state.song];
     }
   }
+
 
   updatePlaylist(query) {
     searchVideo(query).then(vids => {

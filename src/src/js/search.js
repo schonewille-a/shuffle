@@ -1,8 +1,6 @@
 import queryString from "query-string";
 
-var n = 0;
-
-export default function searchVideo(query, pageToken, listOfVideoIDs = []) {
+export default function searchVideo(query, pageToken, listOfVideoIDs = [], n = 0) {
   //Youtube Data API request
 
   const params = {
@@ -37,9 +35,11 @@ export default function searchVideo(query, pageToken, listOfVideoIDs = []) {
       for (let item of response.items) {
         const videoID = item.id.videoId;
         const videoTitle = item.snippet.title;
+        console.log(videoID);
         //If the type is undefined we reject it (how do we know this? who knows)
         if (videoID !== undefined) {
           listOfVideoIDs.push(new Array());
+          
           listOfVideoIDs[n].push(videoID);
           listOfVideoIDs[n].push(videoTitle);
           n++;
