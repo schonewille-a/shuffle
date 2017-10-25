@@ -8,7 +8,8 @@ export default class App extends Component {
 	constructor(props) {
 	    super(props);
 	    this.state = {
-	        searchQuery: "gorillaz"
+	        searchQuery: "metallica",
+	        title: ""
 	    };    
 	}
 
@@ -16,11 +17,15 @@ export default class App extends Component {
 		this.setState({ searchQuery: dataFromChild });
 	}
 
+	title = (dataFromChild) => {
+		this.setState({ title: dataFromChild});
+	}
+
     render() {
 	    return (
 	      <div>
-	        <TopBar parentCallBack={this.myCallback}/>
-    		<Video query={this.state.searchQuery} />
+	        <TopBar parentCallBack={this.myCallback} title={this.state.title}/>
+    		<Video query={this.state.searchQuery} titleCallback={this.title} />
 	      </div>
 	    );
   	}

@@ -9,9 +9,12 @@ export default class Video extends Component {
     super();
     this.state = {
       videoQueue: [],
+      videoTitles: [],
       song: 0
     };
   }
+
+
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.query !== this.props.query) {
@@ -26,13 +29,24 @@ export default class Video extends Component {
       this.state.videoQueue !== nextState.videoQueue
     ) {
 		this.state.player.loadVideoById(nextState.videoQueue[nextState.song]);
+    this.props.titleCallback(this.state.videoTitles[nextState.song]);
     }
   }
 
   updatePlaylist(query) {
     searchVideo(query).then(vids => {
+      var shuffledVids = shuffle(vids);
+      var videoIDs = [];
+      var titles = [];
+
+      for(var i = 0; i < vids.length; i++){
+        videoIDs[i] = shuffledVids[i][0];
+        titles[i] = shuffledVids[i][1];
+      }
+
       this.setState({
-        videoQueue: shuffle(vids),
+        videoQueue: videoIDs,
+        videoTitles: titles,
         song: 0
       });
     });
@@ -67,8 +81,3 @@ export default class Video extends Component {
     );
   }
 }
-
-// //Function to skip song and play next
-// function nextVideo() {
-//   player.loadVideoById(vid[++song]);
-// }
