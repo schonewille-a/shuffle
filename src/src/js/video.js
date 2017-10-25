@@ -38,6 +38,7 @@ export default class Video extends Component {
       var videoIDs = [];
       var titles = [];
 
+      //Removes "(" and "[" from video title and separates 2d array into two 1d arrays
       for(var i = 0; i < vids.length; i++){
         videoIDs[i] = shuffledVids[i][0];
         if(shuffledVids[i][1].indexOf("(") !== -1){

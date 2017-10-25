@@ -3,8 +3,12 @@ import queryString from "query-string";
 var n = 0;
 
 export default function searchVideo(query, pageToken, listOfVideoIDs = []) {
-  //Youtube Data API request
+  //Resets n variable on call of function
+  if(listOfVideoIDs.length === 0) {
+    n = 0;
+  }
 
+  //Youtube Data API request
   const params = {
     //Not certain what part means, but snippet works
     part: "snippet",
@@ -39,7 +43,8 @@ export default function searchVideo(query, pageToken, listOfVideoIDs = []) {
         const videoTitle = item.snippet.title;
         //If the type is undefined we reject it (how do we know this? who knows)
         if (videoID !== undefined && videoID !== "undefined" && videoID !== null) {
-          listOfVideoIDs.push(new Array());
+          //Pushes videoID and video title to 2d array
+          listOfVideoIDs.push([]);
           listOfVideoIDs[n].push(videoID);
           listOfVideoIDs[n].push(videoTitle);
           n++;
