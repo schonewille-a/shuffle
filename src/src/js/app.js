@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "../css/app.css";
 import Video from "./video";
 import TopBar from "./topBar";
+import Controls from "./controls"
 
 export default class App extends Component {
 
@@ -9,7 +10,8 @@ export default class App extends Component {
 	    super(props);
 	    this.state = {
 	        searchQuery: "system of a down",
-	        title: ""
+	        title: "",
+	        song: 0
 	    };    
 	}
 
@@ -21,11 +23,16 @@ export default class App extends Component {
 		this.setState({ title: dataFromChild});
 	}
 
+	song = (dataFromChild) => {
+		this.setState({ song: dataFromChild});
+	}
+
     render() {
 	    return (
 	      <div>
 	        <TopBar parentCallBack={this.myCallback} title={this.state.title}/>
-    		<Video query={this.state.searchQuery} titleCallback={this.title} />
+    		<Video query={this.state.searchQuery} titleCallback={this.title} songCallback={this.song} song={this.state.song}/>
+    		<Controls song={this.state.song} songCallback={this.song} />
 	      </div>
 	    );
   	}

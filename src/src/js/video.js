@@ -17,6 +17,10 @@ export default class Video extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.query !== this.props.query) {
       this.updatePlaylist(nextProps.query);
+      
+    }
+    if(nextProps.song !== this.props.song) {
+      this.setState({song: this.props.song});
     }
   }
 
@@ -42,9 +46,9 @@ export default class Video extends Component {
       for(var i = 0; i < vids.length; i++){
         videoIDs[i] = shuffledVids[i][0];
         if(shuffledVids[i][1].indexOf("(") !== -1){
-          titles[i] = shuffledVids[i][1].slice(0, shuffledVids[i][1].indexOf("("));
+          titles[i] = shuffledVids[i][1].replace(shuffledVids[i][1].substring(shuffledVids[i][1].indexOf("("), shuffledVids[i][1].indexOf(")") + 1), "");
         } else if(shuffledVids[i][1].indexOf("[") !== -1){
-          titles[i] = shuffledVids[i][1].slice(0, shuffledVids[i][1].indexOf("["));
+          titles[i] = shuffledVids[i][1].replace(shuffledVids[i][1].substring(shuffledVids[i][1].indexOf("["), shuffledVids[i][1].indexOf("]") + 1), "");
         } else {
          titles[i] = shuffledVids[i][1];
         }
@@ -77,7 +81,7 @@ export default class Video extends Component {
 
   render() {
     return (
-      <div className="wrapper">
+      <div className="wrapperYoutube">
           <YouTube className="vid"
             onReady={this.onPlayerReady.bind(this)}
             onEnd={this.goToNextSong.bind(this)}
