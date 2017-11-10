@@ -4,8 +4,10 @@ import Video from "./video";
 import TopBar from "./topBar";
 import Controls from "./controls"
 
+/** @module App */
+/** The main app container for all the components.  Contains the top bar, video player and the controls.*/
 export default class App extends Component {
-
+	/** Initilizes the base state for the entire webpage */
 	constructor(props) {
 	    super(props);
 	    this.state = {
