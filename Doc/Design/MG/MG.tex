@@ -29,17 +29,16 @@
 \newcommand{\mthemnum}{M\themnum}
 \newcommand{\mref}[1]{M\ref{#1}}
 
-\title{SE 3XA3: Software Requirements Specification\\Title of Project}
+\title{SE 3XA3: Software Requirements Specification\\Shuffle}
 
-\author{Team \#, Team Name
-		\\ Student 1 name and macid
-		\\ Student 2 name and macid
-		\\ Student 3 name and macid
+\author{Team 16, AsK Studios
+		\\ Aidan Schonewille, schonea
+		\\ Sullivan Stobo, stobos1
+		\\ Karlo Delalic, delalik
 }
 
 \date{\today}
 
-\input{../../Comments}
 
 \begin{document}
 
@@ -55,8 +54,7 @@
 \begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
 \toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
 \midrule
-Date 1 & 1.0 & Notes\\
-Date 2 & 1.1 & Notes\\
+November 10, 2017 & 1.0 & Created module guide\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -132,11 +130,10 @@ adapted here is called design for
 change.
 
 \begin{description}
-\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] The specific
-  hardware on which the software is running.
-\item[\refstepcounter{acnum} \actheacnum \label{acInput}:] The format of the
-  initial input data.
-\item ...
+\item[\refstepcounter{acnum} \actheacnum \label{acHardware}:] Allowing the webpage to work on mobile devices.
+\item[\refstepcounter{acnum} \actheacnum \label{acDesign}:] Changing the colouring and layout of the webpage.
+\item[\refstepcounter{acnum} \actheacnum \label{acLayout}:] Altering where components are on the webpage.
+\item[\refstepcounter{acnum} \actheacnum \label{acDefaultSearch}:] Using a different search term as the default search term.
 \end{description}
 
 \subsection{Unlikely Changes} \label{SecUchange}
@@ -149,11 +146,10 @@ will potentially need to be modified. Hence, it is not intended that these
 decisions will be changed.
 
 \begin{description}
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices
-  (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
-\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] There will always be
-  a source of input data external to the software.
-\item ...
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucIO}:] Input/Output devices (Input: File and/or Keyboard, Output: File, Memory, and/or Screen).
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucInput}:] There will always be a source of input data external to the software.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucService}:] We will always be using YouTube to provide music videos.  No other service will be used.
+\item[\refstepcounter{ucnum} \uctheucnum \label{ucLibrary}:] The project will always use React.js and the YouTube APIs.
 \end{description}
 
 \section{Module Hierarchy} \label{SecMH}
@@ -165,7 +161,14 @@ actually be implemented.
 
 \begin{description}
 \item [\refstepcounter{mnum} \mthemnum \label{mHH}:] Hardware-Hiding Module
-\item ...
+\item [\refstepcounter{mnum} \mthemnum \label{mBH}:] Behaviour-Hiding Module
+\item [\refstepcounter{mnum} \mthemnum \label{mSD}:] Software Decision Module
+\item [\refstepcounter{mnum} \mthemnum \label{mAP}:] App Module
+\item [\refstepcounter{mnum} \mthemnum \label{mCT}:] Controls Module
+\item [\refstepcounter{mnum} \mthemnum \label{mSE}:] Search Module
+\item [\refstepcounter{mnum} \mthemnum \label{mSB}:] Search Bar Module
+\item [\refstepcounter{mnum} \mthemnum \label{mTB}:] Top Bar Module
+\item [\refstepcounter{mnum} \mthemnum \label{mVD}:] Video Module
 \end{description}
 
 
@@ -179,19 +182,16 @@ actually be implemented.
 {Hardware-Hiding Module} & ~ \\
 \midrule
 
-\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module} & ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\
-& ?\\ 
-& ?\\
+\multirow{7}{0.3\textwidth}{Behaviour-Hiding Module}
+& App Module\\
+& Search Bar Module\\
+& Top Bar Module\\
+& Video Module\\
 \midrule
 
-\multirow{3}{0.3\textwidth}{Software Decision Module} & {?}\\
-& ?\\
-& ?\\
+\multirow{3}{0.3\textwidth}{Software Decision Module}
+& Search Module\\
+& Controls Module\\
 \bottomrule
 
 \end{tabular}
@@ -246,17 +246,45 @@ selected.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Input Format Module (\mref{mInput})}
+\subsubsection{App Module (\mref{mAP})}
 
 \begin{description}
-\item[Secrets:]The format and structure of the input data.
-\item[Services:]Converts the input data into the data structure used by the
-  input parameters module.
-\item[Implemented By:] [Your Program Name Here]
+\item[Secrets:] -
+\item[Services:]Provides the structure and layout of the webpage.
+\item[Implemented By:] Shuffle
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Controls Module (\mref{mCT})}
 
+\begin{description}
+\item[Secrets:] Playing/Pausing Videos and going to next and previous videos.
+\item[Services:]Allows the user to control video playback.
+\item[Implemented By:] Shuffle
+\end{description}
+
+\subsubsection{Search Bar Module (\mref{mSB})}
+
+\begin{description}
+\item[Secrets:] -
+\item[Services:] Provides a place for the user to input search text.
+\item[Implemented By:] Shuffle
+\end{description}
+
+\subsubsection{Top Bar Module (\mref{mTB})}
+
+\begin{description}
+\item[Secrets:] -
+\item[Services:] Provides a component to contain the search bar, logo and the displays what is currently playing.
+\item[Implemented By:] Shuffle
+\end{description}
+
+\subsubsection{Video Module (\mref{mVD})}
+
+\begin{description}
+\item[Secrets:] Video playback
+\item[Services:] Contains the video player and controls what video is playing.
+\item[Implemented By:] Shuffle
+\end{description}
 
 \subsection{Software Decision Module}
 
@@ -271,7 +299,14 @@ selected.
 \item[Implemented By:] --
 \end{description}
 
-\subsubsection{Etc.}
+\subsubsection{Search Module (\mref{mSE})}
+
+\begin{description}
+\item[Secrets:] YouTube Data API call
+\item[Services:] Finds a list of video based on a search query.
+\item[Implemented By:] Shuffle
+\end{description}
+
 
 \section{Traceability Matrix} \label{SecTM}
 
@@ -286,17 +321,16 @@ requirements and between the modules and the anticipated changes.
 \toprule
 \textbf{Req.} & \textbf{Modules}\\
 \midrule
-R1 & \mref{mHH}, \mref{mInput}, \mref{mParams}, \mref{mControl}\\
-R2 & \mref{mInput}, \mref{mParams}\\
-R3 & \mref{mVerify}\\
-R4 & \mref{mOutput}, \mref{mControl}\\
-R5 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R6 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}, \mref{mSeqDS}, \mref{mSolver}, \mref{mPlot}\\
-R7 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R8 & \mref{mOutput}, \mref{mEnergy}, \mref{mControl}, \mref{mSeqDS}, \mref{mPlot}\\
-R9 & \mref{mVerifyOut}\\
-R10 & \mref{mOutput}, \mref{mODEs}, \mref{mControl}\\
-R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
+R1 & \mref{mAP}, \mref{mVD}\\
+R2 & \mref{mSD}, \mref{mAP}, \mref{mVD}\\
+R3 & \mref{mAP}, \mref{mSE}, \mref{mVD}\\
+R4 & \mref{mCT}, \mref{mVD}\\
+R5 & \mref{mAP}, \mref{mTB}, \mref{mVD}\\
+R6 & \mref{mAP}\\
+R7 & \mref{mAP}\\
+R8 & \mref{mSD}, \mref{mAP}\\
+R9 & \mref{mSD}\\
+R10 & \mref{mVD}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Requirements and Modules}
@@ -310,17 +344,9 @@ R11 & \mref{mOutput}, \mref{mODEs}, \mref{mEnergy}, \mref{mControl}\\
 \textbf{AC} & \textbf{Modules}\\
 \midrule
 \acref{acHardware} & \mref{mHH}\\
-\acref{acInput} & \mref{mInput}\\
-\acref{acParams} & \mref{mParams}\\
-\acref{acVerify} & \mref{mVerify}\\
-\acref{acOutput} & \mref{mOutput}\\
-\acref{acVerifyOut} & \mref{mVerifyOut}\\
-\acref{acODEs} & \mref{mODEs}\\
-\acref{acEnergy} & \mref{mEnergy}\\
-\acref{acControl} & \mref{mControl}\\
-\acref{acSeqDS} & \mref{mSeqDS}\\
-\acref{acSolver} & \mref{mSolver}\\
-\acref{acPlot} & \mref{mPlot}\\
+\acref{acDesign} & \mref{mAP}\\
+\acref{acLayout} & \mref{mAP}, \mref{mTB}, \mref{mCT}, \mref{mVD}\\
+\acref{acDefaultSearch} & \mref{mSD}, \mref{mSE}\\
 \bottomrule
 \end{tabular}
 \caption{Trace Between Anticipated Changes and Modules}
@@ -342,7 +368,7 @@ because they use modules from the lower levels.
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.7\textwidth]{UsesHierarchy.png}
+\includegraphics[width=0.7\textwidth]{UsesHierarchy.png}
 \caption{Use hierarchy among modules}
 \label{FigUH}
 \end{figure}
