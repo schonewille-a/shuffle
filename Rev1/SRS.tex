@@ -1,0 +1,216 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+\title{SE 3XA3: Software Requirements Specification\\Shuffle}
+
+\author{Team 16, ASK Studios
+    \\ Aidan Schonewille, schonea
+    \\ Sullivan Stobo, stobos
+    \\ Karlo Delalic, delalik
+}
+
+\date{\today}
+
+\begin{document}
+
+\section*{Revision History}
+\begin{center}
+\begin{tabular}{| c | c | p{6cm} |}
+\hline
+\textbf{Date} & \textbf{Developer(s)} & \textbf{Change}\\
+\hline
+October 6, 2017 & Aidan/Sullivan/Karlo & Initial creation of document.\\
+\hline
+November 28, 2017 & Sullivan & Updated document to reflect feedback received \\
+\hline
+\end{tabular}
+\end{center}
+
+\maketitle
+
+\pagenumbering{roman}
+\tableofcontents
+\listoftables
+\listoffigures
+
+\begin{table}[bp]
+\caption{\bf Revision History}
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\midrule
+Oct 4, 2017 & 1.0 & Got a start on filling stuff on inital section.\\
+Date 2 & 1.1 & Finished document.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Project Drivers}
+
+\subsection{The Purpose of the Project}
+
+The purpose of our project is take the open source project Shuffle and redevelop it using software engineering principles and design philosophy as well as adding additional features.  
+
+\subsection{The Stakeholders}
+\subsubsection{The Client}
+The client is the developer of Shuffle, of which we will be basing our product on.
+\subsubsection{The Customers}
+The customer is someone who enjoys watching music videos on their computer.  They would most likely be someone who is already familiar with YouTube, but it is possible that they use a different service to view their music videos.  YouTube's wide variety of content allows our product to cater to any music listener, regardless of taste.
+\subsubsection{Other Stakeholders}
+Developers of YouTube or those who develop using the YouTube API have a stake in this product, as we will be heavily relying on it for the delivery of our service.  Music artists and labels hold a stake in that their products will be shown to our customers.  The members of ASK Studios are stakeholders as we are the primary developers and the outcome of this product will reflect on us heavily.
+
+\subsection{Mandated Constraints}
+\subsubsection{Solution Constraints}
+The application will be operable on any operating system which supports JavaScript enabled web browsers. This includes Windows, Linux, Mac OSX, Android, and iOS. \\
+\\
+\textbf{Rationale:} Clients use each of the above listed operating systems, some even use more than one. \\\\
+\textbf{Fit Criterion:} The application will be approved by tests on each of the operating systems.
+\subsubsection{Partner or Collaborative Applications}
+The application is based on a preexisting YouTube Music Video Shuffler which is written in JavaScript. Therefore the user must be able to support JavaScript on their device in order for the application to be usable.
+\subsubsection{Off-the-Shelf Software}
+We will use Bootstrap 4 for easier development of the structure of the website. This will save time and the large Bootstrap community provides as a great support for a bug-free environment.
+\subsubsection{Budget Constraints}
+The operating budget is \$0 and money is not required to complete any part of this project. Free web hosting and domains are available on the web.
+\subsubsection{Schedule Constraints}
+The product must be completed by the week of November 26, 2017.
+
+\subsection{Naming Conventions and Terminology}
+\begin{enumerate}
+  \item \textbf{API:} Application Program Interface. An Application Program Interface is a set of routines, protocols, and tools for building software applications. An API specifies how software components should interact. It is used by applications to request services from an operating system, software libraries, or other services provided on a server.
+  \item \textbf{JavaScript:} An object-oriented computer programming language commonly used to create interactive effects within web browsers.
+  \\\\
+  \item \textbf{HTML:} HyperText Markup Language. HyperText Markup Language elements are the building blocks of HyperText Markup Language pages. They are represented by tags. Tags label pieces of content such as “heading”, “paragraph”, “table”, and so on. It describes the structure of web pages using markup.
+  \item \textbf{CSS:} Cascading Style Sheets. Cascading Style Sheets describes how HyperText Markup Language elements are to be displayed on screen, paper, or in other media. CSS saves a lot of work. It can control the layout of multiple web pages all at once.
+  \item \textbf{YouTube:} YouTube is a free video-hosting website that allows members to store and serve video content. YouTube members and website visitors can share YouTube videos on a variety of web platforms by using a link or by embedding HyperText Markup Language code.
+   \item \textbf{Bootstrap:} A free and open-source front-end web framework for designing websites and web applications. It contains HyperText Markup Language and Cascading Style Sheets based design templates for typography, forms, buttons, navigation and other interface components, as well as JavaScript extensions.
+  \item \textbf{UI:} User Interface. The means by which the user and a computer system interact, in particular the use of input devices and software.
+  \item \textbf{ReactJS:} React is a JavaScript library for building user interfaces. React allows developers to create large web-applications that use data and can change over time without reloading the page. It aims to primarily provide speed, simplicity, and scalability.
+\end{enumerate}
+
+
+
+
+\subsection{Relevant Facts and Assumptions}
+It is assumed that users are familiar with navigating the internet and using YouTube to view videos. It is also assumed that users will take responsibility for the bandwidth usage that they will incur if such a limit exists in their internet plan. The YouTube API works in such a way that when the program calls the API with a keyword - such as an artist, genre, or song name - a link or links relevant to the keyword are returned and then are served to the user in a viewable way. YouTube does not legally allow for the video and audio of a video to be separated so it is not legally possible for the program to provide a typical music player without displaying the visuals along with the audio.
+
+\section{Functional Requirements}
+
+\textbf{Requirement}: The product shall allow music videos to be streamed via YouTube.\\
+\textbf{Rationale}: This is the very basic function of our product.\\\\
+\textbf{Requirement}: When the current music video playing ends, another relevant music video shall begin playing.\\
+\textbf{Rationale}: This is also a very basic function of our product and allow for minimal input use, as the user can simply let videos play.\\\\
+\textbf{Requirement}: The product shall allow the user to input various artists or genres to provide and begin playing a random music video based on these terms.\\
+\textbf{Rationale}: This allows the user to provide a ‘starting point’ from which the product will begin.  The program can then select music videos that are similar to the initial video selected.\\\\
+\textbf{Requirement}: The product shall allow the user to skip a video or go back to the previous video played.\\
+\textbf{Rationale}: This allow the user to revisit songs they enjoyed or skip songs that they do not enjoy.  This should make our product nicer to use.\\\\
+\textbf{Requirement}:The product shall provide a viewable playlist to allow the user to see what has previously played an what will be played in the future.\\
+\textbf{Rationale}: Allows the user to view what was previously play to allow them to look up previous songs without having to replay them. It also allows them to look forward to music that will be played or skip ahead to music they would like to hear.
+
+\subsection{Scope of Product}
+
+We are taking the existing product ‘Shuffle’, recreating it and adding additional features that will improve the user's experience.
+
+\subsubsection{Context of Work}
+
+The product shall run in HTML5 supported browsers and shall require an Internet connection.
+
+\subsubsection{Work Partitioning}
+
+Karlo shall be the project leader, Sullivan shall be working mostly on front end and Aidan shall be responsible for documentation.  These roles are subject to change and we will all be doing work on most aspects of the product.
+
+\subsubsection{Use Cases}
+
+User provides several artists or genre filters.\\
+User hits a button to apply those filters.\\
+A music video that passes all the filters begins to play.\\\\
+User presses the skip button.\\
+A new video that passes any filters applied begins to play.\\\\
+The users presses the previous button. \\
+The video that was playing before the user pressed the skip button begins to play.\\
+
+
+\section{Non-functional Requirements}
+
+\subsection{Look and Feel Requirements}
+\textbf{Requirement}: The product's visual interface should be minimal and not obstruct the video being played.\\
+\textbf{Rationale}: The user's focus should be on the music video displayed, and the visual interface should not distract the user from their video.
+
+\subsection{Usability and Humanity Requirements}
+\textbf{Requirement}: All of the product's features should be accessible from a single page and not interfere with video playback.\\
+\textbf{Rationale}: The main feature of our product is the playback of music videos, and this service should not be interrupted unless absolutely necessary or desired by the user.\\\\
+\textbf{Requirement}: The product should be easy to understand and operate at a first glance.\\
+\textbf{Rationale}: Our product should appeal to the widest audience by being easy to use and understand.
+
+\subsection{Performance Requirements}
+\textbf{Requirement}: The product should perform similarly to Shuffle and existing YouTube-based web products.\\
+\textbf{Rationale}: To make our product more desirable, it should deliver its services quickly, as to not be outclassed by similar products.
+
+\subsection{Operational and Environmental Requirements}
+\textbf{Requirement}: The product shall run on a desktop HTML5 environment.\\
+\textbf{Rationale}: This is where Shuffle functions, and to fully support its userbase our product shall support it as well.
+
+\subsection{Maintainability and Support Requirements}
+\textbf{Requirement}: The product shall be simple to maintain and support over its lifespan.\\
+\textbf{Rationale}: Should any of the development team or outside developers wish to improve our product, they should not be impeded from doing so.  It should be built with this in mind.
+
+\subsection{Security Requirements}
+\textbf{Requirement}: The service shall not leek any of the users personal data in any way.\\
+\textbf{Rationale}: This would obviously turn off customers from using our service. As we don't directly deal with any user data this should not be a large issue.
+
+\subsection{Cultural Requirements}
+\textbf{Requirement}: None of the webpage that we are in direct control over (not the music videos) shall be offensive to any possible user.\\
+\textbf{Rationale}: ASK Studios should avoid offending users at all cost. It's just simply the correct thing to do. We cannot filter potentially offensive music videos without compromising the usability of our service so the best we can do is ensure that everything on our end is non offensive.
+
+\subsection{Health and Safety Requirements}
+\textbf{Requirement}: The user shall be warned that any videos viewed on Shuffle may contain rapidly flashing images that may effect those with epilepsy.\\
+\textbf{Rationale}: ASK Studios does not have control over the content viewed by users, so it is our responsibility to inform the user of the potential risks of using the service.\\\\
+\textbf{Requirement}: The user shall be warned that extended user of our service may result in eye strain.\\
+\textbf{Rationale}: Extended viewing of any screen can effect the users eyes negatively. ASK Studios should inform the user of any potential risks evolved with using our product.
+
+\subsection{Legal Requirements}
+\textbf{Requirement}: The audio and video from the music video shall not be split.\\
+\textbf{Rationale}: This would break YouTube's terms of service in the use of their API.
+
+\section{Project Issues}
+
+\subsection{Open Issues}
+\textbf{Issue}: The project is currently missing the search bar. \textbf{RESOLVED}\\
+\textbf{Issue}: The project is currently missing the playlist feature.
+\subsection{Off-the-Shelf Solutions}
+YouTube's autoplay function on their site is an existing algorithm that can be used to view related videos.  However, the interface is not as simple as Shuffle, and does not restrict by artist or genre.
+\subsection{New Problems}
+None.
+\subsection{Tasks}
+Tasks are outlined in our development plan.
+\subsection{Risks}
+There are a few legal risks associated with the product as we are allow users to access content that we do not own, but anything that is on YouTube should be legal for us to play, so we should not encounter any issues.
+\subsection{Costs}
+
+No known costs are current associated with with our product.
+
+\subsection{User Documentation and Training}
+
+The product shall provide a simple ‘help’ page to provide users with a brief set of instructions on how to use the product.  Since the product is very simple and should be very straightforward to use, minimal instructions should be required.
+
+\subsection{Waiting Room}
+
+None, for the moment.
+
+\subsection{Ideas for Solutions}
+None currently.
+
+
+\end{document}
