@@ -37,6 +37,7 @@ export default class Video extends Component {
       this.props.titleCallback(nextState.videoTitles[nextState.song]);
       document.title = nextState.videoTitles[nextState.song];
       this.props.playerCallback(this.state.player);
+      this.props.songCallback(nextState.song);
     }
   }
 

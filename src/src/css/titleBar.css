@@ -1,0 +1,15 @@
+.wrapperTitle {
+	height: 50px;
+	width: 100%;
+	background-color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.wrapperTitle h3 {
+	width: max-content;
+	margin: auto;
+	font-size: 1.5em;
+    color: white;
+}

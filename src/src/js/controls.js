@@ -18,6 +18,12 @@ export default class Controls extends Component {
     this.handlePrevious = this.handlePrevious.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.song !== this.state.song) {
+      this.setState({ song: nextProps.song });
+    }
+  }
+
   /** Called when the next button is pressed.  Advances the song. */
   handleNext(event) {
     this.props.songCallback(++this.state.song);

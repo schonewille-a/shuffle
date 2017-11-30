@@ -22,18 +22,6 @@ nav {
 	padding-left: 30px;
 }
 
-.nowPlaying {
-	width: max-content;
-	margin: auto;
-	font-size: 1.5em;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 50%;
-    transform: translateY(-50%);
-    color: black;
-}
-
 .right {
 	float: none!important;
 	text-align: center;

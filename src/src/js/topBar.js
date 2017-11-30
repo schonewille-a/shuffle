@@ -15,9 +15,6 @@ export default class TopBar extends Component {
     return (
       <div className="wrapper">
         <Navbar right brand={<img src={logo} className="brand-logo-img" alt="Shuffle"/>}>
-          <div className="title">
-            <h3 className="nowPlaying">{this.props.title}</h3>
-          </div>
           <SearchBar callBack={this.myCallback}/>
         </Navbar>
       </div>
