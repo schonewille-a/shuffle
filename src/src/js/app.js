@@ -37,7 +37,7 @@ export default class App extends Component {
 
     render() {
 	    return (
-	      <div>
+	      <div className="box">
 	        <TopBar parentCallBack={this.myCallback}/>
     		<Video query={this.state.searchQuery} titleCallback={this.title} playerCallback={this.player} songCallback={this.song} song={this.state.song}/>
     		<TitleBar title={this.state.title}/>

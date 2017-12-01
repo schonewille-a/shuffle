@@ -1,5 +1,6 @@
-.wrapper {
+.wrapperTopBar {
 	float: right;
+	flex: 0 1 auto;
 }
 
 .logo {

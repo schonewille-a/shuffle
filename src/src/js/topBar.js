@@ -13,7 +13,7 @@ export default class TopBar extends Component {
 
   render() {
     return (
-      <div className="wrapper">
+      <div className="wrapperTopBar">
         <Navbar right brand={<img src={logo} className="brand-logo-img" alt="Shuffle"/>}>
           <SearchBar callBack={this.myCallback}/>
         </Navbar>
