@@ -1,0 +1,28 @@
+.form {
+	display: inline-block;
+	width: 30em;
+}
+
+.input {
+	color: black;
+	border-bottom: 1px solid black!important;
+	margin: 0!important;
+}
+
+.input:focus {
+	border-bottom: 1px solid black!important;
+    -webkit-box-shadow: 0 1px 0 0 black!important;
+    box-shadow: 0 1px 0 0 black!important;
+}
+
+.searchButton {
+	float: right!important;
+}
+
+.searchButton i {
+	color: black;
+}
+
+.form {
+	float: right;
+}
