@@ -14,9 +14,9 @@
 \title{SE 3XA3: Software Requirements Specification\\Shuffle}
 
 \author{Team 16, ASK Studios
-    \\ Aidan Schonewille, schonea
-    \\ Sullivan Stobo, stobos
-    \\ Karlo Delalic, delalik
+		\\ Aidan Schonewille, schonea
+		\\ Sullivan Stobo, stobos
+		\\ Karlo Delalic, delalik
 }
 
 \date{\today}
@@ -32,6 +32,8 @@
 October 6, 2017 & Aidan/Sullivan/Karlo & Initial creation of document.\\
 \hline
 November 28, 2017 & Sullivan & Updated document to reflect feedback received \\
+\hline
+December 5, 2017 & Sullivan & Finalized.  Fixed bolding of requirements.  Didn't make that red because it would look dumb. \\
 \hline
 \end{tabular}
 \end{center}
@@ -85,10 +87,10 @@ We will use Bootstrap 4 for easier development of the structure of the website. 
 \subsubsection{Budget Constraints}
 The operating budget is \$0 and money is not required to complete any part of this project. Free web hosting and domains are available on the web.
 \subsubsection{Schedule Constraints}
-The product must be completed by the week of November 26, 2017.
+\color{red}The product must be completed by the week of November 26, 2017.\color{black}
 
 \subsection{Naming Conventions and Terminology}
-\begin{enumerate}
+\begin{enumerate}\color{red}
   \item \textbf{API:} Application Program Interface. An Application Program Interface is a set of routines, protocols, and tools for building software applications. An API specifies how software components should interact. It is used by applications to request services from an operating system, software libraries, or other services provided on a server.
   \item \textbf{JavaScript:} An object-oriented computer programming language commonly used to create interactive effects within web browsers.
   \\\\
@@ -99,12 +101,13 @@ The product must be completed by the week of November 26, 2017.
   \item \textbf{UI:} User Interface. The means by which the user and a computer system interact, in particular the use of input devices and software.
   \item \textbf{ReactJS:} React is a JavaScript library for building user interfaces. React allows developers to create large web-applications that use data and can change over time without reloading the page. It aims to primarily provide speed, simplicity, and scalability.
 \end{enumerate}
+\color{black}
 
 
 
 
 \subsection{Relevant Facts and Assumptions}
-It is assumed that users are familiar with navigating the internet and using YouTube to view videos. It is also assumed that users will take responsibility for the bandwidth usage that they will incur if such a limit exists in their internet plan. The YouTube API works in such a way that when the program calls the API with a keyword - such as an artist, genre, or song name - a link or links relevant to the keyword are returned and then are served to the user in a viewable way. YouTube does not legally allow for the video and audio of a video to be separated so it is not legally possible for the program to provide a typical music player without displaying the visuals along with the audio.
+\color{red}It is assumed that users are familiar with navigating the internet and using YouTube to view videos. \color{black}It is also assumed that users will take responsibility for the bandwidth usage that they will incur if such a limit exists in their internet plan. The YouTube API works in such a way that when the program calls the API with a keyword - such as an artist, genre, or song name - a link or links relevant to the keyword are returned and then are served to the user in a viewable way. YouTube does not legally allow for the video and audio of a video to be separated so it is not legally possible for the program to provide a typical music player without displaying the visuals along with the audio.
 
 \section{Functional Requirements}
 
@@ -166,9 +169,11 @@ The video that was playing before the user pressed the skip button begins to pla
 \textbf{Requirement}: The product shall be simple to maintain and support over its lifespan.\\
 \textbf{Rationale}: Should any of the development team or outside developers wish to improve our product, they should not be impeded from doing so.  It should be built with this in mind.
 
+\color{red}
 \subsection{Security Requirements}
 \textbf{Requirement}: The service shall not leek any of the users personal data in any way.\\
 \textbf{Rationale}: This would obviously turn off customers from using our service. As we don't directly deal with any user data this should not be a large issue.
+
 
 \subsection{Cultural Requirements}
 \textbf{Requirement}: None of the webpage that we are in direct control over (not the music videos) shall be offensive to any possible user.\\
@@ -179,6 +184,7 @@ The video that was playing before the user pressed the skip button begins to pla
 \textbf{Rationale}: ASK Studios does not have control over the content viewed by users, so it is our responsibility to inform the user of the potential risks of using the service.\\\\
 \textbf{Requirement}: The user shall be warned that extended user of our service may result in eye strain.\\
 \textbf{Rationale}: Extended viewing of any screen can effect the users eyes negatively. ASK Studios should inform the user of any potential risks evolved with using our product.
+\color{black}
 
 \subsection{Legal Requirements}
 \textbf{Requirement}: The audio and video from the music video shall not be split.\\
@@ -187,23 +193,28 @@ The video that was playing before the user pressed the skip button begins to pla
 \section{Project Issues}
 
 \subsection{Open Issues}
+\color{red}
 \textbf{Issue}: The project is currently missing the search bar. \textbf{RESOLVED}\\
-\textbf{Issue}: The project is currently missing the playlist feature.
+\textbf{Issue}: The project is currently missing the playlist feature. \textbf{REMOVED}\\
+\color{black}
+
 \subsection{Off-the-Shelf Solutions}
 YouTube's autoplay function on their site is an existing algorithm that can be used to view related videos.  However, the interface is not as simple as Shuffle, and does not restrict by artist or genre.
+
 \subsection{New Problems}
 None.
 \subsection{Tasks}
 Tasks are outlined in our development plan.
 \subsection{Risks}
 There are a few legal risks associated with the product as we are allow users to access content that we do not own, but anything that is on YouTube should be legal for us to play, so we should not encounter any issues.
-\subsection{Costs}
 
+\subsection{Costs}
 No known costs are current associated with with our product.
 
 \subsection{User Documentation and Training}
-
+\color{red}
 The product shall provide a simple ‘help’ page to provide users with a brief set of instructions on how to use the product.  Since the product is very simple and should be very straightforward to use, minimal instructions should be required.
+\color{black}
 
 \subsection{Waiting Room}
 

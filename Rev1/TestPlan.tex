@@ -1,0 +1,358 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=red,
+    urlcolor=blue
+}
+\usepackage[round]{natbib}
+
+\title{SE 3XA3: Test Plan\\Shuffle}
+
+\author{Team 16, ASK Studios
+		\\ Aidan Schonewille, schonea
+		\\ Sullivan Stobo, stobos
+		\\ Karlo Delalic, delalik
+}
+
+\date{\today}
+
+\begin{document}
+
+
+\maketitle
+\pagenumbering{roman}
+
+\newpage
+\begin{table}[bp]
+\caption{\bf Revision History}
+\begin{tabularx}{\textwidth}{p{3cm}p{2cm}X}
+\toprule {\bf Date} & {\bf Version} & {\bf Notes}\\
+\midrule
+10/27/2017 & 1.0 & Filled in all sections\\
+December 5 & 1.1 & Finalized\\
+\bottomrule
+\end{tabularx}
+\end{table}
+\newpage
+
+\tableofcontents
+\listoftables
+
+\newpage
+
+\pagenumbering{arabic}
+
+\section{General Information}
+
+\subsection{Purpose}
+
+\color{red} The purpose of the project Shuffle is provide an easy way to shuffle play music videos based on a specific keyword from Youtube. \color{black}
+
+\subsection{Scope}
+
+This project uses JavaScript utilizing Reactjs and various YouTube APIs.  The scope of our testing will cover mainly the correctness of our usage of the various YouTube APIs, any Javascript algorithms that define functionality and the UI made using React.  Reliability and robustness will be paid special attention to.  We will be doing both black-box and white-box testing.
+
+\subsection{Acronyms, Abbreviations, and Symbols}
+	
+\begin{table}[hbp]
+\caption{\textbf{Table of Abbreviations}} \label{Table}
+
+\begin{tabularx}{\textwidth}{p{3cm}X}
+\toprule
+\textbf{Abbreviation} & \textbf{Definition} \\
+\midrule
+JS & JavaScript\\
+API & Application Programming Interface\\
+UI & User Interface\\
+React & React.js\\
+\bottomrule
+\end{tabularx}
+
+\end{table}
+
+\begin{table}[!htbp]
+\caption{\textbf{Table of Definitions}} \label{Table}
+
+\begin{tabularx}{\textwidth}{p{3cm}X}
+\toprule
+\textbf{Term} & \textbf{Definition}\\
+\midrule
+React.js & A component-based JavaScript library for creating user interfaces.\\
+YouTube & A web service for uploading, sharing and playing video.\\
+Shuffle & The title of the original project and also the title of our project.\\
+\bottomrule
+\end{tabularx}
+
+\end{table}	
+
+\subsection{Overview of Document}
+\color{red}This document will outline the testing process to be used to verify the web application 'Shuffle.'  The test will be categorized into two categories; System Tests, which will test the requirements of the system and Proof of concept tests, which will test the functionality of the system.  Every test will contain a description of how it will be carried out and by whom.\color{black}
+
+\section{Plan}
+	
+\subsection{Software Description}
+Shuffle is a web app that generates personalized playlists based on the user’s input and
+preferences. It acts as a alternative to the major music streaming services.
+
+\subsection{Test Team}
+The following project members are responisble for all procedures of the validation process including writing and executing tests:
+\begin{itemize}
+\item Aidan Schonewille
+\item Sullivan Stobo
+\item Karlo Delalic
+\end{itemize}
+
+\subsection{Automated Testing Approach}
+Shuffle will be tested using both automated and human testing. Program functions and the UI will be tested using an automated testing tool. The majority of the testing will be done using automated testing tools with an exception of testing the correctness of the video. The Test Team will compile a list of search terms, and it will check if the video is a good match (e.g. if it is a music video and not any other type such as an interview).
+
+\subsection{Testing Tools}
+Jest will be used to test the various React components and vanilla JS \color{red}for robustness and correctness to avoid any potential bugs or errors that we may have missed\color{black}. Manual testing will be used for the UI \color{red} as it is impossible to automatically conform that every UI element is in the correct location. Manual testing will also be used for visual confirmation\color{black} is required for correctness.
+
+\subsection{Testing Schedule}
+		
+\href{https://gitlab.cas.mcmaster.ca/delalik/Shuffle/blob/master/ProjectSchedule/Shuffle.gan}{View our Gantt chart here.}
+
+\section{System Test Description}
+	
+\subsection{Tests for Functional Requirements}
+
+\subsubsection{Testing for correctness}
+
+The product shall allows music videos to be streamed from YouTube based on a search query and when one video ends another video relevant to the query shall begin playing.
+		
+\paragraph{Basic functionality test}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+Type: Functional
+					
+Initial State: The Webpage has just loaded.
+					
+Input: A search query
+					
+Output: A music video shall begin playing
+					
+How test will be performed: \color{red}A member of the test team shall observe whether or not a music video plays.\color{black}
+					
+\item{test-id2\\}
+
+Type: Functional
+					
+Initial State: A video has just ended
+					
+Input: The search query previously used to find the last video
+					
+Output: Another relevant video
+					
+How test will be performed: \color{red}A member of the test team shall observe whether or not a new relevant video plays. \color{black}
+
+\end{enumerate}
+
+\subsubsection{Testing video control}
+
+The product shall allow the user to pause the current video, go the next video or to back to the previous video
+
+\paragraph{Next, previous and play tests.}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+Type: Functional
+					
+Initial State: The Webpage has just loaded and a search query has been provided.  A video is playing.
+					
+Input: Clicking the pause button
+					
+Output: The current video stops playing
+					
+How test will be performed: \color{red}A member of the test team shall observe whether or not the video stops playing. \color{black}
+					
+\item{test-id2\\}
+
+Type: Functional
+					
+Initial State: The Webpage has just loaded and a search query has been provided.  A video is playing.
+					
+Input: The next button is pressed and then the previous button is pressed
+					
+Output: A new video should begin to play and then the video the was previously playing should begin to play
+					
+How test will be performed: \color{red}A member of the test team shall observe whether or not when the next button is pressed a new video plays and when the previous button is pressed the previous video plays. \color{black}
+
+\end{enumerate}
+
+\subsection{Tests for Nonfunctional Requirements}
+
+\subsubsection{Testing for usability}
+
+A minimal interface should be used as not to obstruct the video being played or distract the user.  The product shall fit on a single page and be intuitive to use.
+		
+\paragraph{Look, feel and usability testing}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+Type: Functional
+					
+Initial State: The webpage has just loaded.
+					
+Input/Condition: None
+					
+Output/Result: The webpage shall be completely viewable with scrolling up or down
+					
+How test will be performed: \color{red}A member of the test team shall confirm that the webpage can be entirely view without scrolling. \color{black}
+					
+\item{test-id2\\}
+
+Type: Functional
+					
+Initial State: A video is playing on the webpage
+					
+Input: None
+					
+Output: No text should be interfering or overlapping with the video
+					
+How test will be performed: \color{red}A member of the test team shall observe the webpage and for any overlapping text. \color{black}
+
+\end{enumerate}
+
+\subsubsection{Testing for Performance}
+
+The product shall preform similarly to the previous 'Shuffle' project in term of response time.  The project shall run in most HTML 5 environments.
+
+\paragraph{Performance and Operational tests}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+Type: Manual
+					
+Initial State: The webpage has not loaded
+					
+Input/Condition: A test team member will attempt to open the project on Chrome, Firefox and Edge
+					
+Output/Result: The project should successfully open on all three browser in a similar amount of time.
+					
+How test will be performed: \color{red}A member of the test team shall observe the time it takes the webpage to load and compare each result to each other. \color{black}
+					
+\item{test-id2\\}
+
+Type: Manual
+					
+Initial State: The webpage has not loaded
+					
+Input: A test team member shall open the original 'Shuffle' project concurrently with ours.
+					
+Output: Our project should open in a similar amount of time or faster.
+					
+How test will be performed: \color{red}A member of the test team shall observe the time it takes both webpages to open. \color{black}
+
+\end{enumerate}
+
+\section{Tests for Proof of Concept}
+
+\subsection{Testing for Visual Correctness}
+		
+\paragraph{Basic Functionality Test}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+
+Type: Functional
+					
+Initial State: Site has not been loaded.
+					
+Input: Opening site.
+					
+Output: Video player renders.
+					
+How test will be performed: Site will be opened to check if the player initializes.
+					
+\item{test-id2\\}
+
+Type: Functional
+					
+Initial State: Site has not been loaded.
+					
+Input: Opening site and specifying a search term "Radiohead".
+					
+Output: Player loads and plays a random Radiohead music video.
+					
+How test will be performed: A search term will be added manually in the code and the site will be loaded.
+
+\item{test-id3\\}
+
+Type: Functional
+					
+Initial State: Site is playing a Radiohead music video.
+					
+Input: Opening site and specifying a search term "Radiohead".
+					
+Output: Player loads and plays a random Radiohead music video.
+					
+How test will be performed: A search term will be added manually in the code and the site will be loaded.
+
+\end{enumerate}
+
+\subsection{Testing for Internal Functions}
+\paragraph{Basic Functionality Test}
+
+\begin{enumerate}
+
+\item{test-id1\\}
+Type: Manual
+					
+Initial State: Site is offline.
+					
+Input: Starting site with search term "Radiohead".
+					
+Output: Player loads and plays a random Radiohead music video.
+					
+How test will be performed: A search term will be added manually in the code and the list of videos to play will be outputted to the console.  This will be run multiple times to check for randomness.
+
+\item{test-id2\\}
+Type: Manual
+					
+Initial State: Site is offline.
+					
+Input: Starting site with search term "".
+					
+Output: Player loads and creates a playlist of random music videos.
+					
+How test will be performed: A blank search term will be added manually in the code and the list of videos to play will be outputted to the console.  This will be run multiple times to check for randomness.
+
+\end{enumerate}
+	
+\section{Comparison to Existing Implementation}	
+Three tests will be made to compare Shuffle to the existing implementation:
+\begin{itemize}
+\item Test \color{red}\textbf{3.2.1, id2 }\color{black} will be used to test the usability and responsiveness of Shuffle and the existing implementation
+\item Test \color{red}\textbf{3.2.2, id1 }\color{black} will be used to test the performance of Shuffle and the existing implementation
+\item Test \color{red}\textbf{3.2.1, id1 }\color{black} will be used to test the overall satisfaction of Shuffle and the existing implementation 
+\end{itemize}
+\section{Unit Testing Plan}
+Jest will be used for React component and vanilla JS testing, and manual testing will be used for UI testing.
+		
+\subsection{Unit testing of internal functions}
+In order create unit tests for the internal functions of the program, certain methods that return values can be tested. This will involve taking the methods and giving them input values. Given what they are supposed to output and that they actually output a series of unit tests can be created. Unit tests will include unit tests that contain proper inputs and inputs that generate exceptions. Jest will be used for this purpose. Test cases will be created for each function and Jest will take care of the testing.
+		
+\subsection{Unit testing of output files}	
+In order to create test cases for the UI, the non-functional requirements will need to be taken into account. Examples of such are: the video to search term match, type of video returned, functionality of buttons, search bars, and other UI updating components. Manual testing will be used to test the UI as human verification of the video is required as not enough information is included in the video to distinguish from an incorrect match.
+
+\bibliographystyle{plainnat}
+
+\bibliography{SRS}
+
+\end{document}
